@@ -1,0 +1,6 @@
+You need to create an app on twitter. To do so, visit https://apps.twitter.com
+
+Generate your own CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET and add them to the main-script file.
+
+Similarily, generate your own openweathermap API key(https://http://openweathermap.org/api) and 
+WAQI(http://aqicn.org/data-platform/token/#/) Token and add them in the 'url'and 'poll_url' line. 
