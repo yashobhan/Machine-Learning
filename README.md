@@ -4,6 +4,7 @@ A repository containing some of the things I work on & learn on a day-to-day bas
 
 These include:
   - Python
-  - Image Processing
+  - Image Processing & Computer Vision
   - Natural Language Processing
+  - Deep Learning
   - A little bit of Reinforcement Learning
