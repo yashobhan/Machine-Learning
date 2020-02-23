@@ -1,6 +1,6 @@
 # Machine-Learning
 
-A repository containing some of the things I work on & learn on a day-to-day basis.
+A repository highlighting some of the things I work on & learn on a day-to-day basis.
 
 These include:
   - Python
@@ -8,3 +8,4 @@ These include:
   - Natural Language Processing
   - Deep Learning
   - A little bit of Reinforcement Learning
+  - A Twitter Weather Bot for some reason
