@@ -8,4 +8,5 @@ These include:
   - Natural Language Processing
   - Deep Learning
   - A little bit of Reinforcement Learning
+  - A few Kaggle submissions
   - A Twitter Weather Bot for some reason
