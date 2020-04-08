@@ -8,17 +8,16 @@ from statistics import mean
 from statistics import median
 from collections import Counter 
 
-import tflearn
-from tflearn.layers.core import input_data
-from tflearn.layers.core import dropout
-from tflearn.layers.core import fully_connected
-from tflearn.layers.estimator import regression
+# import tflearn
+# from tflearn.layers.core import input_data
+# from tflearn.layers.core import dropout
+# from tflearn.layers.core import fully_connected
+# from tflearn.layers.estimator import regression
 
-import keras
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.optimizers import Adam
-from keras.layers import Dropout
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.layers import Dropout
 
 ETA = 1e-2
 dropout_rate = 0.8
@@ -91,36 +90,36 @@ def initial_population():
 
 
 
-def neural_network(input_size, dropout_rate):
-    network = input_data(shape=[None, input_size, 1], name='input')
+# def neural_network(input_size, dropout_rate):
+#     network = input_data(shape=[None, input_size, 1], name='input')
 
-    network = fully_connected(network, 128, activation='relu')
-    network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
+#     network = fully_connected(network, 128, activation='relu')
+#     network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
 
-    network = fully_connected(network, 256, activation='relu')
-    network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
+#     network = fully_connected(network, 256, activation='relu')
+#     network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
 
-    network = fully_connected(network, 512, activation='relu')
-    network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
+#     network = fully_connected(network, 512, activation='relu')
+#     network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
 
-    netowrk = fully_connected(network, 1024, activation='relu')
-    network = dropout(network, dropout_rate)
+#     netowrk = fully_connected(network, 1024, activation='relu')
+#     network = dropout(network, dropout_rate)
 
-    network = fully_connected(network, 512, activation='relu')
-    network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
+#     network = fully_connected(network, 512, activation='relu')
+#     network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
 
-    network = fully_connected(network, 256, activation='relu')
-    network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
+#     network = fully_connected(network, 256, activation='relu')
+#     network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
 
-    network = fully_connected(network, 128, activation='relu')
-    network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
+#     network = fully_connected(network, 128, activation='relu')
+#     network = dropout(network, dropout_rate) # dropout_rate is keep rate rather than dropout rate wtf
 
-    network = fully_connected(network, 2, activation='softmax')
-    network = regression(network, optimizer='adam', learning_rate=ETA, loss='categorical_crossentropy', name='outputs')
+#     network = fully_connected(network, 2, activation='softmax')
+#     network = regression(network, optimizer='adam', learning_rate=ETA, loss='categorical_crossentropy', name='outputs')
 
-    model = tflearn.DNN(network)
+#     model = tflearn.DNN(network)
 
-    return model
+#     return model
 
 
 def keras_net(input_size):
@@ -158,10 +157,10 @@ def train_model(training_data, model=False):
     print('Shape of y: ', y.shape)
 
     if not model:
-        model = neural_network(input_size=len(X[0]), dropout_rate=dropout_rate)
+        model = keras_net(input_size=len(X[0]))
 
-    model.fit(X, y, n_epoch=5, snapshot_step=500, show_metric=True, run_id='openAI')
-    # model.fit(X, y, epochs=5, verbose=1)
+    # model.fit(X, y, epochs=5, show_metric=True, run_id='openAI')
+    model.fit(X, y, epochs=5, verbose=1)
 
     return model
 
