@@ -57,7 +57,7 @@ width, height = video.get(cv2.CAP_PROP_FRAME_WIDTH), video.get(cv2.CAP_PROP_FRAM
 print(width, height)
 fourcc_video = cv2.VideoWriter_fourcc(*'XVID')
 print(fourcc_video)
-video_writer = cv2.VideoWriter('mask_demo_output.avi', fourcc_video, 30, (int(width), int(height)))
+video_writer = cv2.VideoWriter('C:/Users/yasho/Desktop/mask_demo_output.avi', fourcc_video, 30, (int(width//1.5), int(height//1.5)))
 
 while True:
 	ret, frame = video.read()
